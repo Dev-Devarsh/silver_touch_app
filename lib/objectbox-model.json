@@ -1,0 +1,81 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:6470066468063900777",
+      "lastPropertyId": "2:2675768617339291445",
+      "name": "Categories",
+      "properties": [
+        {
+          "id": "1:1116105305432243300",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2675768617339291445",
+          "name": "category",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:7590440867705058817",
+      "lastPropertyId": "7:3396187760126337672",
+      "name": "User",
+      "properties": [
+        {
+          "id": "1:4824096626496750813",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7040326088090854003",
+          "name": "firstName",
+          "type": 9
+        },
+        {
+          "id": "3:5447170340391889587",
+          "name": "lastName",
+          "type": 9
+        },
+        {
+          "id": "4:4917525362327124939",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "5:4206567614152311368",
+          "name": "mobileNumber",
+          "type": 6
+        },
+        {
+          "id": "6:6610956785046597625",
+          "name": "category",
+          "type": 9
+        },
+        {
+          "id": "7:3396187760126337672",
+          "name": "image",
+          "type": 23
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:7590440867705058817",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
