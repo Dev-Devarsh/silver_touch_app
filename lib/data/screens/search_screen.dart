@@ -41,7 +41,8 @@ class _SearhgScreenState extends State<SearchScreen> {
           ),
           InkWell(
             onTap: () {
-              FocusScope.of(context).unfocus();
+              FocusScopeNode currentFocus = FocusScope.of(context);
+              currentFocus.unfocus();
             },
             child: BlocBuilder<UserCubit, UserState>(
               builder: (context, state) {
