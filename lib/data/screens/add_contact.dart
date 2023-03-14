@@ -183,6 +183,9 @@ class _AddContactState extends State<AddContact> {
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w900),
                   )),
+              Padding(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom + 20))
             ],
           ),
         ),
@@ -229,6 +232,11 @@ class _AddContactState extends State<AddContact> {
     if (strBase64Image.isEmpty) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Image is required')));
+      return;
+    }
+    if (category.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text('category is required')));
       return;
     }
     if (widget.id != null) {
