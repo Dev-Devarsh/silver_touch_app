@@ -19,7 +19,7 @@ class ObjectBox {
   }
 
   List<User> getUsers() {
-    log("User ${_userBox.count()}");
+    log("User added ${_userBox.count()}");
     if (!_userBox.isEmpty()) {
       return _userBox.getAll();
     } else {

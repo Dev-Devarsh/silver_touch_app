@@ -4,18 +4,18 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:6470066468063900777",
-      "lastPropertyId": "2:2675768617339291445",
+      "id": "1:4253455598490039022",
+      "lastPropertyId": "2:1500977333088289651",
       "name": "Categories",
       "properties": [
         {
-          "id": "1:1116105305432243300",
+          "id": "1:8104645818115588718",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:2675768617339291445",
+          "id": "2:1500977333088289651",
           "name": "category",
           "type": 9
         }
@@ -23,43 +23,43 @@
       "relations": []
     },
     {
-      "id": "2:7590440867705058817",
-      "lastPropertyId": "7:3396187760126337672",
+      "id": "2:4345751281039037995",
+      "lastPropertyId": "7:6100707533189369552",
       "name": "User",
       "properties": [
         {
-          "id": "1:4824096626496750813",
+          "id": "1:5942094719169225901",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:7040326088090854003",
+          "id": "2:4446262076960016751",
           "name": "firstName",
           "type": 9
         },
         {
-          "id": "3:5447170340391889587",
+          "id": "3:2311523832525352488",
           "name": "lastName",
           "type": 9
         },
         {
-          "id": "4:4917525362327124939",
+          "id": "4:4086391091543970978",
           "name": "email",
           "type": 9
         },
         {
-          "id": "5:4206567614152311368",
+          "id": "5:1355235946426223044",
           "name": "mobileNumber",
           "type": 6
         },
         {
-          "id": "6:6610956785046597625",
+          "id": "6:4459952695781506988",
           "name": "category",
           "type": 9
         },
         {
-          "id": "7:3396187760126337672",
+          "id": "7:6100707533189369552",
           "name": "image",
           "type": 23
         }
@@ -67,7 +67,7 @@
       "relations": []
     }
   ],
-  "lastEntityId": "2:7590440867705058817",
+  "lastEntityId": "2:4345751281039037995",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
