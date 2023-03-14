@@ -7,6 +7,8 @@ import 'package:object_box_tut/data/local_db/add_contact_db.dart';
 import 'package:object_box_tut/data/screens/add_category.dart';
 import 'package:object_box_tut/data/screens/add_contact.dart';
 import 'package:object_box_tut/data/screens/router/router.dart';
+import 'package:object_box_tut/data/screens/search_screen.dart';
+import 'package:object_box_tut/data/screens/widget/contacts_tile.dart';
 import 'package:object_box_tut/data/screens/widget/image_pick.dart';
 import 'package:object_box_tut/utils/app_color.dart';
 
@@ -33,6 +35,7 @@ class _ContactListState extends State<ContactList> {
     super.initState();
   }
 
+  Uint8List? strBase64Image;
   @override
   Widget build(BuildContext context) {
     Uint8List strBase64Image;
@@ -44,6 +47,13 @@ class _ContactListState extends State<ContactList> {
           title:
               const Text("Contact List", style: TextStyle(color: Colors.white)),
           centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  AppRouter.goToNextPage(context, SearchScreen.route);
+                },
+                icon: const Icon(Icons.search))
+          ],
         ),
         drawer: Drawer(
           backgroundColor: AppColor.scaffoldBg,
@@ -52,9 +62,13 @@ class _ContactListState extends State<ContactList> {
             child: ListView.separated(
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () =>
-                        AppRouter.goToNextPage(context, routeList[index])
-                            .then((value) => _userCubit.getAllContacts()),
+                    onTap: () {
+                      Navigator.pop(context);
+                      AppRouter.goToNextPage(context, routeList[index])
+                          .then((value) {
+                        _userCubit.getAllContacts();
+                      });
+                    },
                     child: ListTile(
                       title: Text(
                         drawerList[index],
@@ -86,61 +100,13 @@ class _ContactListState extends State<ContactList> {
                   child: Column(
                     children: List.generate(
                         contacts.length,
-                        (index) => InkWell(
-                              onTap: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: ListTile(
-                                  leading: ClipRRect(
-                                    borderRadius: BorderRadius.circular(180),
-                                    child: Image.memory(contacts[index].image,
-                                        fit: BoxFit.fill),
-                                  ),
-                                  title: Text(contacts[index].firstName),
-                                  trailing: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      InkWell(
-                                        onTap: () {
-                                          AppRouter.goToNextPage(
-                                              context, AddContact.route,
-                                              arguments: {
-                                                'category':
-                                                    contacts[index].category,
-                                                'strBase64Image':
-                                                    contacts[index].image,
-                                                'phoneNumber': contacts[index]
-                                                    .mobileNumber,
-                                                'email': contacts[index].email,
-                                                'firstName':
-                                                    contacts[index].firstName,
-                                                'lastName':
-                                                    contacts[index].lastName,
-                                                'id': contacts[index].id,
-                                              });
-                                        },
-                                        child: const Image(
-                                            image: AssetImage(
-                                                'assets/mipmap/edit.png')),
-                                      ),
-                                      const SizedBox(
-                                        width: 20,
-                                      ),
-                                      InkWell(
-                                        onTap: () {
-                                          _userCubit.deleteContact(
-                                              id: contacts[index].id);
-                                        },
-                                        child: const Image(
-                                            image: AssetImage(
-                                                'assets/mipmap/delete.png')),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                        (index) => Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ContactTile(
+                                  user: contacts[index],
+                                  id: (id) {
+                                    _userCubit.deleteContact(id: id);
+                                  }),
                             )),
                   ),
                 );
