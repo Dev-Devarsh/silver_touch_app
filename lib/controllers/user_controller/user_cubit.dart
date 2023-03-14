@@ -13,6 +13,26 @@ class UserCubit extends Cubit<UserState> {
     emit(GetAllContacts(data: userData));
   }
 
+  void getContactByName(String name) {
+    List<User> userData;
+    if (name.isNotEmpty) {
+      userData = userRepository.getContactByName(name);
+    } else {
+      userData = [];
+    }
+    emit(GetContactsByName(data: userData));
+  }
+
+  void getContactByNumber(String name) {
+    List<User> userData;
+    if (name.isNotEmpty) {
+      userData = userRepository.getContactByNumber(name);
+    } else {
+      userData = [];
+    }
+    emit(GetContactsByName(data: userData));
+  }
+
   void saveContacts({required User user}) async {
     userRepository.saveContacts(user: user);
     emit(SaveContactSuccess());

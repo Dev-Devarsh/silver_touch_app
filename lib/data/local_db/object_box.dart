@@ -31,6 +31,29 @@ class ObjectBox {
   int insterUser(User user) => _userBox.put(user);
   bool deleteUser(int id) => _userBox.remove(id);
 
+  List<User> getUserByName(String name) {
+    Query<User> query = _userBox
+        .query(User_.firstName.contains(name) | User_.lastName.contains(name))
+        .build();
+    List<User> users = query.find();
+    log(users.map((e) => e.firstName).toString());
+    return users;
+  }
+
+  List<User> getUserByPhoneNo(String name) {
+    if (!_userBox.isEmpty()) {
+      List<User> users = [];
+      for (var e in _userBox.getAll()) {
+        if (e.mobileNumber.toString().contains(name)) {
+          users.add(e);
+        }
+      }
+      return users;
+    } else {
+      return [];
+    }
+  }
+
   List<Categories> getAllCategory() {
     if (!_userCategory.isEmpty()) {
       return _userCategory.getAll();

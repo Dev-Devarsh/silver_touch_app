@@ -18,6 +18,14 @@ class UserRepository {
     objectBox.deleteUser(id);
   }
 
+  getContactByName(String name) {
+    return objectBox.getUserByName(name);
+  }
+
+  getContactByNumber(String name) {
+    return objectBox.getUserByPhoneNo(name);
+  }
+
   List<Categories> getCategory() {
     log('message ${objectBox.getAllCategory().map((e) => e.category)}');
     return objectBox.getAllCategory();
