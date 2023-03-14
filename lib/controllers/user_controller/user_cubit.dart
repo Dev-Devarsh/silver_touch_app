@@ -34,7 +34,7 @@ class UserCubit extends Cubit<UserState> {
   }
 
   void saveContacts({required User user}) async {
-    userRepository.saveContacts(user: user);
+   await userRepository.saveContacts(user: user);
     emit(SaveContactSuccess());
   }
 

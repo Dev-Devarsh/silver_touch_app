@@ -10,8 +10,8 @@ class UserRepository {
     return objectBox.getUsers();
   }
 
-  void saveContacts({required User user}) async {
-    objectBox.insterUser(user);
+  Future<int> saveContacts({required User user}) async {
+   return await objectBox.insterUser(user);
   }
 
   deleContact(int id) {
