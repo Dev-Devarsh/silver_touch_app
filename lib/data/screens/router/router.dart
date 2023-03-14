@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:object_box_tut/data/screens/add_category.dart';
 import 'package:object_box_tut/data/screens/add_contact.dart';
 import 'package:object_box_tut/data/screens/contact_list.dart';
+import 'package:object_box_tut/data/screens/search_screen.dart';
 
 class AppRouter {
   Route onRouteGenerate(RouteSettings settings) {
@@ -29,6 +30,11 @@ class AppRouter {
         //  Map argument = settings.arguments as Map;
         return MaterialPageRoute(
             settings: settings, builder: (_) => AddCategory());
+      case SearchScreen.route:
+        //  Map argument = settings.arguments as Map;
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => SearchScreen());
+
       default:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const ContactList());
