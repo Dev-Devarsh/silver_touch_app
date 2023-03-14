@@ -107,7 +107,15 @@ class _SearchBarState extends State<SearchBar> {
                   splashColor: Colors.transparent,
                   padding: EdgeInsets.zero,
                   onPressed: () {
-
+                    _numericOn = false;
+                    // Dismiss the keyboard when the user taps outside of the text field
+                    FocusScopeNode currentFocus = FocusScope.of(widget.ctx);
+                    if (currentFocus.hasFocus) {
+                      currentFocus.unfocus();
+                      Future.delayed(const Duration(milliseconds: 500), () {
+                        widget.textFocusNode.requestFocus();
+                      });
+                    }
                   },
                   icon: const Icon(Icons.format_list_numbered_rounded))
               : IconButton(
@@ -115,7 +123,14 @@ class _SearchBarState extends State<SearchBar> {
                   padding: EdgeInsets.zero,
                   onPressed: () {
                     _numericOn = true;
-
+                    // Dismiss the keyboard when the user taps outside of the text field
+                    FocusScopeNode currentFocus = FocusScope.of(widget.ctx);
+                    if (currentFocus.hasFocus) {
+                      currentFocus.unfocus();
+                      Future.delayed(const Duration(milliseconds: 500), () {
+                        widget.textFocusNode.requestFocus();
+                      });
+                    }
                   },
                   icon: const Icon(Icons.keyboard_alt_outlined))
         ],
