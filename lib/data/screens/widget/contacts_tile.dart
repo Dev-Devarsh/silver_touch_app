@@ -21,10 +21,10 @@ class _ContactTileState extends State<ContactTile> {
         width: 55,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(180),
-          child: Image.memory(widget.user.image!, fit: BoxFit.fill),
+          child: Image.memory(widget.user.image, fit: BoxFit.fill),
         ),
       ),
-      title: Text(widget.user.firstName!),
+      title: Text(widget.user.firstName),
       trailing: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
