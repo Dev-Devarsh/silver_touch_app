@@ -14,7 +14,7 @@ class UserCubit extends Cubit<UserState> {
   }
 
   void getContactByName(String name) {
-    List<User> userData;
+    List<User> userData=[];
     if (name.isNotEmpty) {
       userData = userRepository.getContactByName(name);
     } else {
@@ -24,7 +24,7 @@ class UserCubit extends Cubit<UserState> {
   }
 
   void getContactByNumber(String name) {
-    List<User> userData;
+    List<User> userData=[];
     if (name.isNotEmpty) {
       userData = userRepository.getContactByNumber(name);
     } else {
