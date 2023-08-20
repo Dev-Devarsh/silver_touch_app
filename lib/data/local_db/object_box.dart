@@ -18,7 +18,7 @@ class ObjectBox {
     return ObjectBox._init(store);
   }
 
-  List<User> getUsers() {
+  Future<List<User>> getUsers() async{
     log("User added ${_userBox.count()}");
     if (!_userBox.isEmpty()) {
       return _userBox.getAll();

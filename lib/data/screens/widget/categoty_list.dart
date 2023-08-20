@@ -16,8 +16,7 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 456,
+    return Expanded(
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -36,30 +35,23 @@ class CategoryList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(catItems[index].category),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      const Image(
-                                          image: AssetImage(
-                                              'assets/mipmap/edit.png')),
+                                      const Image(image: AssetImage('assets/mipmap/edit.png')),
                                       const SizedBox(
                                         width: 20,
                                       ),
                                       InkWell(
                                         onTap: () {
-                                          _categoryCubit.deleteCategory(
-                                              catItems[index].id);
+                                          _categoryCubit.deleteCategory(catItems[index].id);
                                         },
-                                        child: const Image(
-                                            image: AssetImage(
-                                                'assets/mipmap/delete.png')),
+                                        child: const Image(image: AssetImage('assets/mipmap/delete.png')),
                                       ),
                                     ],
                                   )

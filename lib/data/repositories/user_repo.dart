@@ -2,12 +2,11 @@ import 'dart:developer';
 
 import 'package:object_box_tut/data/local_db/add_contact_db.dart';
 import 'package:object_box_tut/data/local_db/categoty_db.dart';
-import 'package:object_box_tut/data/local_db/object_box.dart';
 import 'package:object_box_tut/main.dart';
 
 class UserRepository {
-  List<User> getAllContacts() {
-    return objectBox.getUsers();
+  Future<List<User>> getAllContacts() async{
+    return await objectBox.getUsers();
   }
 
   Future<int> saveContacts({required User user}) async {

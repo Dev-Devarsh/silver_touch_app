@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:object_box_tut/controllers/user_controller/user_cubit.dart';
 import 'package:object_box_tut/data/local_db/add_contact_db.dart';
 import 'package:object_box_tut/data/screens/add_category.dart';
@@ -9,7 +8,6 @@ import 'package:object_box_tut/data/screens/add_contact.dart';
 import 'package:object_box_tut/data/screens/router/router.dart';
 import 'package:object_box_tut/data/screens/search_screen.dart';
 import 'package:object_box_tut/data/screens/widget/contacts_tile.dart';
-import 'package:object_box_tut/data/screens/widget/image_pick.dart';
 import 'package:object_box_tut/utils/app_color.dart';
 
 class ContactList extends StatefulWidget {
@@ -35,10 +33,8 @@ class _ContactListState extends State<ContactList> {
     super.initState();
   }
 
-  Uint8List? strBase64Image;
   @override
   Widget build(BuildContext context) {
-    Uint8List strBase64Image;
     _userCubit = BlocProvider.of<UserCubit>(context);
     return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -89,7 +85,7 @@ class _ContactListState extends State<ContactList> {
             }
           },
           builder: (context, state) {
-            if (state is GetAllContacts) {
+            if (state is GetAllContactsState) {
               if (state.data.isEmpty) {
                 return const Center(
                   child: Text('Please Add contacts'),
