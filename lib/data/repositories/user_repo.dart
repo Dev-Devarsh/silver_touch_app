@@ -10,7 +10,7 @@ class UserRepository {
   }
 
   Future<int> saveContacts({required User user}) async {
-   return await objectBox.insterUser(user);
+   return objectBox.insterUser(user);
   }
 
   deleContact(int id) {

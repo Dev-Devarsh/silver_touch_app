@@ -193,10 +193,10 @@ class _AddContactState extends State<AddContact> {
   }
 
   _init() {
-    phoneNumberController = TextEditingController();
-    emailController = TextEditingController();
-    firstNameController = TextEditingController();
-    lastNameController = TextEditingController();
+    phoneNumberController = TextEditingController(text: "6546848646");
+    emailController = TextEditingController(text: "erfgerg");
+    firstNameController = TextEditingController(text: "erfgerg");
+    lastNameController = TextEditingController(text: "erfgerg");
     if (widget.firstName != null) {
       phoneNumberController.text = widget.phoneNumber!.toString();
       emailController.text = widget.email!;

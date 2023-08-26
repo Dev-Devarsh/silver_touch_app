@@ -8,10 +8,16 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
   final UserRepository userRepository;
   UserCubit({required this.userRepository}) : super(UserInitial());
-
+  DateTime tStamp = DateTime.now();
   void getAllContacts() async {
-    List<User> userData =await  userRepository.getAllContacts();
-    emit(GetAllContactsState(data: userData));
+    final dif = tStamp.difference(DateTime.now());
+    if (dif.inSeconds == 0) {
+      return;
+    } else {
+      // List<User> userData = await userRepository.getAllContacts();
+      emit(GetAllContactsState(data: []));
+      tStamp = DateTime.now();
+    }
   }
 
   void getContactByName(String name) {
